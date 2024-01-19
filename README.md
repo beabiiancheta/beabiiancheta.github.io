@@ -4,7 +4,7 @@
 
 1. Application of Concepts Taught:
 
-My HTML structure is well-organized, with with appropriate use of semantic tags like "<section>, <nav>, and <ul>". I also used external CSS styles and have applied transitions effectively. The use of flexbox and grid in CSS demonstrates an understanding of layout techniques. However, I didn't apply responsiveness to my website because it's so hard to figure out.
+My HTML structure is well-organized, with with appropriate use of semantic tags like section, nav, and ul. I also used external CSS styles and have applied transitions effectively. The use of flexbox and grid in CSS demonstrates an understanding of layout techniques. However, I didn't apply responsiveness to my website because it's so hard to figure out.
 
 
 2. Design:
