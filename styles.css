@@ -122,13 +122,9 @@ section {
 }
 
 .sectiontext-p1 {
-    text-align: center;
-
-}
-
-.sectiontext-p1 {
-    font-size: 1.50rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
     
 
@@ -218,7 +214,8 @@ section {
 
 .skills-container ul {
     list-style-type: disc; 
-    padding-left: 20px;    
+    padding-left: 20px;
+    height: 100%;    
 }
 
 .skills-container p {
@@ -236,8 +233,28 @@ section {
     padding: 30px;
     margin-left: 4rem;
     margin-right: 2rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 160px;
+    height: 230px;
+}
+
+.skills-container p{
+    text-align: center;
+}
+
+.skills-container .skill-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.skills-container .skill-wrapper h3 {
+    margin-right: 10px;
+}
+
+.skills-container .logo-container img {
+    width: 30px;
+    height: 30px;
 }
 
 @keyframes bounce {
@@ -276,7 +293,7 @@ section {
 
 .project {
     width: 310px; 
-    height: 220px; 
+    height: 230px; 
     border-radius: 20px;
 }
 
