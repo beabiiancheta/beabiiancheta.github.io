@@ -125,12 +125,39 @@ section {
     font-size: 2rem;
     text-align: center;
 }
-    
+  
+.myname {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.myname {
+    overflow: hidden; 
+    white-space: nowrap; 
+    width: 0; 
+    animation: typing 4s steps(70) infinite; 
+}
+
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
 
 .title {
     font-size: 3rem;
     text-align: center;
+    transition: color 0.5s ease-in-out; 
 }
+
+.title:hover {
+    color: rgb(150, 111, 214);
+}
+
 
 #socials-container {
     display: flex;
@@ -294,6 +321,11 @@ section {
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.article-container:hover {
+    transform: scale(1.02); 
 }
 
 .project {
@@ -335,5 +367,3 @@ section {
     background: black;
     color: white;
 }
-
-
