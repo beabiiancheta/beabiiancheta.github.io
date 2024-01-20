@@ -255,10 +255,10 @@ section {
 .skills-container {
     border: 2px solid black;
     border-radius: 10px;
-    padding: 30px;
+    padding: 40px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 160px;
-    height: 220px;
+    width: 180px;
+    height: 230px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -279,6 +279,9 @@ section {
 
 }
 
+.skills-container li {
+    font-size: 1.2rem;
+}
 
 .skills-container .skill-wrapper h3 {
     margin-right: 10px;
