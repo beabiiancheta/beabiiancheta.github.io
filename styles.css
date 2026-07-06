@@ -470,9 +470,13 @@ section {
 
 .contact-description{
     color:black;
-    margin-top:1rem;
+    margin:1rem 0 2rem;
     line-height:1.8;
     max-width:600px;
+}
+
+.contact-container{
+    margin-top:1rem;
 }
 
 .contact-container{
