@@ -376,3 +376,39 @@ section {
     background: black;
     color: white;
 }
+
+/* PROFILE BUTTONS */
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 145px;
+    height: 50px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-outline {
+    color: black;
+    border: 2px solid black;
+    background: white;
+}
+
+.btn-outline:hover {
+    background: rgb(150,111,214);
+    color: white;
+    border-color: rgb(150,111,214);
+}
