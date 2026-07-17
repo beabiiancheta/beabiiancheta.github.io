@@ -1,123 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internship Experience</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Internship | Bea Bianca Ancheta</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#9670d6;
+    --purple-soft:#c3b1e1;
+    --purple-deep:#6c4ca8;
+    --ink:#1a1430;
+    --muted:#5a5470;
+    --card:rgba(255,255,255,0.72);
+    --border:rgba(150,111,214,0.25);
+    --shadow:0 20px 50px -20px rgba(76,45,140,.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Poppins",sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    background:
+      radial-gradient(1000px 600px at 10% -10%, #e9dcff 0%, transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, #ffe6f1 0%, transparent 55%),
+      radial-gradient(700px 500px at 50% 110%, #dff2ff 0%, transparent 60%),
+      linear-gradient(135deg,#faf7ff 0%, #f4ecff 100%);
+    background-attachment: fixed;
+    overflow-x:hidden;
+  }
+  /* floating blobs */
+  .blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.5;z-index:-1;animation:float 14s ease-in-out infinite}
+  .blob.b1{width:380px;height:380px;background:#c3b1e1;top:-80px;left:-80px}
+  .blob.b2{width:420px;height:420px;background:#ffc9e0;bottom:-120px;right:-100px;animation-delay:-6s}
+  .blob.b3{width:300px;height:300px;background:#b8dcff;top:40%;right:20%;animation-delay:-3s}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-40px) scale(1.08)}}
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;justify-content:space-around;align-items:center;
+    height:70px;
+    backdrop-filter:blur(14px);
+    background:rgba(255,255,255,0.55);
+    border-bottom:1px solid var(--border);
+  }
+  .logo{font-size:1.3rem;font-weight:600;color:var(--purple-deep)}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{color:var(--ink);text-decoration:none;font-weight:500;transition:.25s}
+  .nav-links a:hover{color:var(--purple)}
+  /* hero */
+  header.hero{
+    text-align:center;padding:5rem 1.5rem 3rem;max-width:900px;margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-block;padding:.4rem 1rem;border-radius:999px;
+    background:rgba(150,111,214,.12);color:var(--purple-deep);
+    font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  }
+  h1{
+    font-size:clamp(2rem,5vw,3.4rem);font-weight:700;margin:1rem 0;
+    background:linear-gradient(120deg,var(--purple-deep),var(--purple),#e07ab8);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7}
+  /* stats */
+  .stats{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:1rem;max-width:900px;margin:2.5rem auto 0;padding:0 1.5rem;
+  }
+  .stat{
+    background:var(--card);backdrop-filter:blur(10px);
+    border:1px solid var(--border);border-radius:18px;padding:1.2rem;text-align:center;
+    box-shadow:var(--shadow);transition:.3s;
+  }
+  .stat:hover{transform:translateY(-4px)}
+  .stat .num{font-size:2rem;font-weight:700;color:var(--purple-deep)}
+  .stat .label{font-size:.85rem;color:var(--muted);margin-top:.25rem}
+  /* container */
+  main{max-width:1000px;margin:0 auto;padding:3rem 1.5rem 5rem}
+  /* tabs */
+  .tabs{
+    display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:1.5rem;
+  }
+  .tab{
+    padding:.7rem 1.2rem;border:1px solid var(--border);border-radius:999px;
+    background:var(--card);cursor:pointer;font-family:inherit;font-weight:500;color:var(--ink);
+    transition:.25s;font-size:.9rem;
+  }
+  .tab:hover{transform:translateY(-2px)}
+  .tab.active{background:linear-gradient(135deg,var(--purple),var(--purple-deep));color:#fff;border-color:transparent;box-shadow:var(--shadow)}
+  .panel{
+    display:none;
+    background:var(--card);backdrop-filter:blur(14px);
+    border:1px solid var(--border);border-radius:24px;
+    padding:2rem 2.2rem;box-shadow:var(--shadow);
+    animation:fadeUp .5s ease;
+  }
+  .panel.active{display:block}
+  .panel h2{color:var(--purple-deep);margin-bottom:1rem;font-size:1.4rem}
+  .panel p{color:var(--ink);line-height:1.8;margin-bottom:1rem}
+  .panel ul{list-style:none;display:grid;gap:.7rem}
+  .panel ul li{
+    display:flex;gap:.7rem;align-items:flex-start;line-height:1.6;
+    padding:.8rem 1rem;background:rgba(150,111,214,.06);border-radius:12px;
+    border-left:3px solid var(--purple);
+  }
+  .panel ul li::before{content:"✦";color:var(--purple);font-size:1rem;line-height:1.6}
+  /* timeline */
+  .timeline{position:relative;margin-top:1rem;padding-left:1.5rem}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--purple),transparent)}
+  .tl-item{position:relative;padding-bottom:1.5rem}
+  .tl-item::before{content:"";position:absolute;left:-1.5rem;top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 4px rgba(150,111,214,.2)}
+  .tl-item strong{color:var(--purple-deep)}
+  .tl-item p{color:var(--muted);margin-top:.25rem;font-size:.95rem}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+  .reveal{opacity:0;transform:translateY(20px);transition:.7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .back{
+    display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;
+    text-decoration:none;color:var(--purple-deep);font-weight:600;
+  }
+  .back:hover{color:var(--purple)}
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:.9rem}
+  @media(max-width:600px){
+    nav{height:auto;padding:.8rem;flex-direction:column;gap:.5rem}
+    .nav-links{gap:1rem;flex-wrap:wrap;justify-content:center}
+    .panel{padding:1.4rem}
+  }
+</style>
 </head>
-
 <body>
-
-<section class="internship">
-
-    <p class="sectiontext-p1">MY PROFESSIONAL EXPERIENCE</p>
-    <h1 class="title">Internship at Ampleon Philippines, Inc.</h1>
-
-    <div class="internship-container">
-
-        <img src="images/amp.png" alt="Ampleon Logo" class="company-logo">
-
-        <div class="internship-content">
-
-            <h2>IT Intern</h2>
-
-            <p class="intro">
-                During my internship at <strong>Ampleon Philippines, Inc.</strong>, I am assigned to the
-                Information Technology Department, where I support software development and business reporting
-                projects. Throughout the internship, I have gained practical experience in SQL development,
-                SAP ERP monitoring, Power BI dashboard development, Camstar Manufacturing Execution System (MES),
-                and data validation within the semiconductor manufacturing industry.
-            </p>
-
-            <div class="content-section">
-
-                <h3>Company Overview</h3>
-            
-                <p>
-                    Ampleon Philippines, Inc. is a global semiconductor company that develops RF power
-                    solutions for industrial, communication, medical, and scientific applications.
-                    As an IT Intern, I work with the Information Technology Department to support
-                    software development, database management, reporting, and manufacturing systems.
-                    This internship has allowed me to experience how technology supports production
-                    and business operations in a manufacturing environment.
-                </p>
-            
-            </div>
-
-            <div class="content-section">
-
-                <h3>Nature of Assignments and Tasks</h3>
-            
-                <p>
-                    My internship started with company orientation and technical training on SAP ERP,
-                    Camstar MES, SQL Server Management Studio (SSMS), and Power BI. I also perform
-                    daily SAP ERP monitoring to ensure production transactions are processed correctly.
-                </p>
-            
-                <p>
-                    As my internship continues, I have been working on SQL database development,
-                    including creating tables, stored procedures, SQL jobs, and validating production
-                    data. I am also developing the <strong>Material Consumption Report</strong>, a
-                    Power BI dashboard requested by the Assembly Engineering and Process Control teams.
-                    The project involves data extraction, transformation, validation, dashboard
-                    development, client presentations, user feedback, and Release-to-Production (R2P)
-                    documentation.
-                </p>
-            
-            </div>
-
-            <div class="content-section">
-
-                <h3>Total Hours Rendered</h3>
-            
-                <p>
-                    My internship began on <strong>May 11, 2026</strong> and is currently ongoing,
-                    with an expected completion date of <strong>July 27, 2026</strong>. Throughout
-                    the internship, I have participated in company orientation, technical training,
-                    SAP ERP monitoring, SQL database development, Power BI dashboard development,
-                    Camstar data validation, documentation, client presentations, and other IT-related
-                    projects. These experiences continue to strengthen my technical and professional skills.
-                </p>
-            
-            </div>
-
-            <div class="content-section">
-
-                <h3>Key Accomplishments</h3>
-            
-                <ul>
-                    <li>Developing the Material Consumption Report using SQL Server and Power BI.</li>
-                    <li>Performing data extraction, transformation, validation, and dashboard development.</li>
-                    <li>Monitoring daily SAP ERP production transactions.</li>
-                    <li>Validating production data using the Camstar Test Server.</li>
-                    <li>Creating SQL tables, stored procedures, and SQL jobs.</li>
-                    <li>Presenting dashboard updates and gathering user feedback.</li>
-                    <li>Preparing Release-to-Production (R2P) documentation.</li>
-                </ul>
-            
-            </div>
-
-            <div class="content-section">
-
-                <h3>Conclusion</h3>
-            
-                <p>
-                    My internship at Ampleon Philippines, Inc. has been a valuable learning experience.
-                    It has helped me strengthen my knowledge of SQL, Power BI, SAP ERP, Camstar MES,
-                    and enterprise software development while improving my communication, teamwork,
-                    and problem-solving skills. As I continue my internship, I look forward to learning
-                    more and contributing to future projects while preparing for my career in software
-                    development and data analytics.
-                </p>
-            
-            </div>
-
-        </div>
-
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <nav>
+    <div class="logo">BeaBii.</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <header class="hero">
+    <span class="eyebrow">My Professional Experience</span>
+    <h1>Internship at Ampleon Philippines, Inc.</h1>
+    <p>IT Intern supporting software development, database management, reporting, and manufacturing systems in a global semiconductor company.</p>
+    <div class="stats">
+      <div class="stat"><div class="num" data-count="486">0</div><div class="label">Hours Rendered</div></div>
+      <div class="stat"><div class="num" data-count="5">0</div><div class="label">Core Technologies</div></div>
+      <div class="stat"><div class="num" data-count="7">0</div><div class="label">Key Accomplishments</div></div>
+      <div class="stat"><div class="num" data-count="1">0</div><div class="label">Dashboard Delivered</div></div>
     </div>
-
-</section>
-
+  </header>
+  <main>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="overview">Company Overview</button>
+      <button class="tab" data-tab="tasks">Tasks</button>
+      <button class="tab" data-tab="hours">Timeline</button>
+      <button class="tab" data-tab="accomplishments">Accomplishments</button>
+      <button class="tab" data-tab="conclusion">Conclusion</button>
+    </div>
+    <section class="panel active reveal" id="overview">
+      <h2>Company Overview</h2>
+      <p>Ampleon Philippines, Inc. is a global semiconductor company that develops RF power solutions for industrial, communication, medical, and scientific applications. As an IT Intern, I work with the Information Technology Department to support software development, database management, reporting, and manufacturing systems.</p>
+      <p>This internship has allowed me to experience how technology supports production and business operations in a manufacturing environment.</p>
+    </section>
+    <section class="panel reveal" id="tasks">
+      <h2>Nature of Assignments &amp; Tasks</h2>
+      <p>My internship started with company orientation and technical training on SAP ERP, Camstar MES, SQL Server Management Studio (SSMS), and Power BI. I also perform daily SAP ERP monitoring to ensure production transactions are processed correctly.</p>
+      <p>As my internship continues, I have been working on SQL database development — creating tables, stored procedures, SQL jobs, and validating production data. I am also developing the <strong>Material Consumption Report</strong>, a Power BI dashboard requested by the Assembly Engineering and Process Control teams. The project involves data extraction, transformation, validation, dashboard development, client presentations, user feedback, and Release-to-Production (R2P) documentation.</p>
+    </section>
+    <section class="panel reveal" id="hours">
+      <h2>Total Hours Rendered</h2>
+      <p>My internship began on <strong>May 11, 2026</strong> and is currently ongoing, with an expected completion date of <strong>July 27, 2026</strong>.</p>
+      <div class="timeline">
+        <div class="tl-item"><strong>May 11, 2026 — Onboarding</strong><p>Company orientation and technical training on SAP ERP, Camstar MES, SSMS, and Power BI.</p></div>
+        <div class="tl-item"><strong>Weeks 2–4 — Daily Operations</strong><p>SAP ERP monitoring and validation of production transactions.</p></div>
+        <div class="tl-item"><strong>Ongoing — Development</strong><p>SQL database work and building the Material Consumption Report in Power BI.</p></div>
+        <div class="tl-item"><strong>July 27, 2026 — Completion</strong><p>Final dashboard turnover and R2P documentation.</p></div>
+      </div>
+    </section>
+    <section class="panel reveal" id="accomplishments">
+      <h2>Key Accomplishments</h2>
+      <ul>
+        <li>Developing the Material Consumption Report using SQL Server and Power BI.</li>
+        <li>Performing data extraction, transformation, validation, and dashboard development.</li>
+        <li>Monitoring daily SAP ERP production transactions.</li>
+        <li>Validating production data using the Camstar Test Server.</li>
+        <li>Creating SQL tables, stored procedures, and SQL jobs.</li>
+        <li>Presenting dashboard updates and gathering user feedback.</li>
+        <li>Preparing Release-to-Production (R2P) documentation.</li>
+      </ul>
+    </section>
+    <section class="panel reveal" id="conclusion">
+      <h2>Conclusion</h2>
+      <p>My internship at Ampleon Philippines, Inc. has been a valuable learning experience. It has helped me strengthen my knowledge of SQL, Power BI, SAP ERP, Camstar MES, and enterprise software development while improving my communication, teamwork, and problem-solving skills.</p>
+      <p>As I continue my internship, I look forward to learning more and contributing to future projects while preparing for my career in software development and data analytics.</p>
+    </section>
+    <a class="back" href="index.html">← Back to Home</a>
+  </main>
+  <footer>© 2026 Bea Bianca Ancheta · Made with 💜</footer>
+<script>
+  // Tabs
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    t.classList.add('active');
+    const panel = document.getElementById(t.dataset.tab);
+    panel.classList.add('active');
+    // re-trigger reveal
+    panel.classList.remove('in');
+    requestAnimationFrame(() => panel.classList.add('in'));
+  }));
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting && e.target.classList.add('in'));
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // Animated counters
+  const counters = document.querySelectorAll('.num');
+  const co = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.count;
+      const dur = 1200, start = performance.now();
+      const tick = now => {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.floor(p * target).toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      co.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => co.observe(c));
+</script>
 </body>
 </html>

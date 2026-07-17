@@ -1,396 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Personal Website</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bea Bianca Ancheta | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#9670d6;
+    --purple-soft:#c3b1e1;
+    --purple-deep:#6c4ca8;
+    --ink:#1a1430;
+    --muted:#5a5470;
+    --card:rgba(255,255,255,0.72);
+    --border:rgba(150,111,214,0.25);
+    --shadow:0 20px 50px -20px rgba(76,45,140,.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Poppins",sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    background:
+      radial-gradient(1000px 600px at 10% -10%, #e9dcff 0%, transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, #ffe6f1 0%, transparent 55%),
+      radial-gradient(700px 500px at 50% 110%, #dff2ff 0%, transparent 60%),
+      linear-gradient(135deg,#faf7ff 0%, #f4ecff 100%);
+    background-attachment: fixed;
+    overflow-x:hidden;
+  }
+  .blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.5;z-index:-1;animation:float 14s ease-in-out infinite}
+  .blob.b1{width:380px;height:380px;background:#c3b1e1;top:-80px;left:-80px}
+  .blob.b2{width:420px;height:420px;background:#ffc9e0;bottom:-120px;right:-100px;animation-delay:-6s}
+  .blob.b3{width:300px;height:300px;background:#b8dcff;top:40%;right:20%;animation-delay:-3s}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-40px) scale(1.08)}}
+  nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;justify-content:space-around;align-items:center;
+    height:70px;
+    backdrop-filter:blur(14px);
+    background:rgba(255,255,255,0.55);
+    border-bottom:1px solid var(--border);
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    height:80px;
+    width:auto;
+    transition:.3s;
+}
+
+.logo img:hover{
+    transform:scale(1.05);
+}
+  .nav-links{display:flex;gap:1.8rem;list-style:none;flex-wrap:wrap;justify-content:center}
+  .nav-links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.9rem;letter-spacing:.05em;transition:.25s;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--purple);transition:.3s}
+  .nav-links a:hover{color:var(--purple)}
+  .nav-links a:hover::after{width:100%}
+  .eyebrow{
+    display:inline-block;padding:.4rem 1rem;border-radius:999px;
+    background:rgba(150,111,214,.12);color:var(--purple-deep);
+    font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  }
+  .section-title{
+    font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin:.6rem 0 2rem;
+    background:linear-gradient(120deg,var(--purple-deep),var(--purple),#e07ab8);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  section{max-width:1100px;margin:0 auto;padding:4rem 1.5rem;text-align:center}
+  /* HERO */
+  .hero{
+    min-height:calc(100vh - 70px); /* full screen minus navbar */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:2rem 1.5rem;
+}
+  .hero .greet{color:var(--muted);font-size:1.1rem;font-weight:400}
+  .hero-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:70px;
+    flex-wrap:wrap;
+}
+
+.hero-image{
+    position: relative;
+    width: 420px;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Rotating background */
+.bg-image{
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    object-fit: contain;
+    left: 45%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 20s linear infinite;
+    opacity: .35;
+    z-index: 0;
+}
+
+/* Your profile picture */
+.profile-image{
+    position: relative;
+    width: 280px;
+    height: 280px;
+
+    object-fit: cover;      /* fills the circle */
+    border-radius: 50%;     /* makes it a perfect circle */
+
+    border: 8px solid rgba(255,255,255,.9);
+    box-shadow: 0 20px 50px rgba(0,0,0,.18);
+
+    z-index: 2;
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    max-width:520px;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+  .hero h1{
+    font-size:clamp(2.4rem,6vw,4rem);font-weight:700;margin:.4rem 0;
+    background:linear-gradient(120deg,var(--purple-deep),var(--purple),#e07ab8);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .role{color:var(--muted);font-size:1.2rem;font-weight:500;letter-spacing:.05em}
+  .hero-actions{display:flex;gap:1rem;justify-content:center;margin-top:1.8rem;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.8rem 1.6rem;border-radius:999px;
+    text-decoration:none;font-weight:500;font-size:.95rem;
+    transition:.25s;cursor:pointer;border:none;font-family:inherit;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--purple),var(--purple-deep));
+    color:#fff;box-shadow:var(--shadow);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 25px 50px -15px rgba(76,45,140,.5)}
+  .btn-outline{
+    background:var(--card);color:var(--purple-deep);
+    border:1px solid var(--border);backdrop-filter:blur(10px);
+  }
+  .btn-outline:hover{transform:translateY(-3px);background:#fff}
+  .socials{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem}
+  .socials a{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--card);border:1px solid var(--border);
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--purple-deep);text-decoration:none;font-weight:600;
+    transition:.25s;backdrop-filter:blur(10px);
+  }
+  .socials img{
+    width:22px;
+    height:22px;
+}
+
+.socials a{
+    width:50px;
+    height:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+  .card:hover{transform:translateY(-5px)}
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;text-align:left}
+  .about-grid p{color:var(--ink);line-height:1.8;margin-bottom:.8rem;font-size:.95rem}
+  .about-grid h3{color:var(--purple-deep);margin-bottom:.8rem;font-size:1.1rem}
+  .edu-item{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    padding:18px 0;
+    border-bottom:1px dashed var(--border);
+}
+
+.edu-item:last-child{
+    border-bottom:none;
+}
+
+.school-logo{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    flex-shrink:0;
+
+    background:white;
+    border-radius:50%;
+    padding:6px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    border:1px solid rgba(150,111,214,.15);
+}
+
+.edu-info{
+    flex:1;
+}
+
+.edu-info strong{
+    display:block;
+    color:var(--ink);
+    font-size:1rem;
+    margin-bottom:6px;
+}
+
+.edu-info span{
+    display:block;
+    color:var(--muted);
+    font-size:.92rem;
+    line-height:1.7;
+}
+.interest-card{
+    width:100%;
+    margin-top:1.5rem;
+    padding:1.8rem 2rem;
+
+    background:linear-gradient(
+        135deg,
+        rgba(150,111,214,.12),
+        rgba(224,122,184,.10)
+    );
+
+    border:1px solid var(--border);
+    border-radius:22px;
+    box-shadow:var(--shadow);
+
+    text-align:left;
+}
+
+.interest-card h3{
+    color:var(--purple-deep);
+    margin-bottom:.8rem;
+    font-size:1.15rem;
+}
+
+.interest-card p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:.95rem;
+}
+  /* SKILLS */
+
+  .card{
+    background:var(--card);
+    backdrop-filter:blur(14px);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:1.8rem;
+    box-shadow:var(--shadow);
+    transition:.3s;
+    text-align:left;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:1.5rem;
+}
+
+.skill-card h3{
+    color:var(--purple-deep);
+    text-align:center;
+    margin-bottom:1.2rem;
+    font-size:1.15rem;
+}
+
+.skill-item{
+    margin-bottom:1rem;
+}
+
+.skill-item .row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:.4rem;
+    font-size:.9rem;
+}
+
+.skill-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.skill-left img{
+    width:24px;
+    height:24px;
+    object-fit:contain;
+}
+
+.skill-item .row span:last-child{
+    color:var(--muted);
+    font-size:.8rem;
+}
+
+.bar{
+    height:8px;
+    background:rgba(150,111,214,.15);
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.bar > span{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--purple),var(--purple-deep));
+    border-radius:999px;
+    width:0;
+    transition:width 1.2s ease;
+}
+  /* PROJECTS */
+  .proj-intro{color:var(--muted);margin-bottom:2rem;font-size:.95rem}
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+  .project{
+    background:var(--card);backdrop-filter:blur(14px);
+    border:1px solid var(--border);border-radius:22px;
+    padding:1.5rem;box-shadow:var(--shadow);
+    text-align:left;transition:.3s;display:flex;flex-direction:column;
+  }
+  .project:hover{transform:translateY(-6px)}
+  .project .thumb{
+    height:180px;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.project .thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.project:hover img{
+    transform:scale(1.08);
+}
+  .project h3{color:var(--purple-deep);margin-bottom:.4rem;font-size:1.05rem}
+  .project p{color:var(--muted);font-size:.9rem;line-height:1.6;flex:1}
+  .project a{
+    margin-top:1rem;color:var(--purple-deep);text-decoration:none;
+    font-weight:600;font-size:.9rem;align-self:flex-start;
+  }
+  .project a:hover{color:var(--purple)}
+/* CERTIFICATE SLIDER */
+
+.certificate-slider{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    margin-top:40px;
+}
+
+.certificate-wrapper{
+    position:relative;
+    width:850px;      /* wider */
+    max-width:90%;
+    height:650px;     /* taller */
+}
+
+.certificate-card{
+    position:absolute;
+    inset:0;
+    background:var(--card);
+    backdrop-filter:blur(14px);
+    border:1px solid var(--border);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+
+    display:flex;
+    flex-direction:column;
+
+    opacity:0;
+    transform:scale(.95);
+    transition:.45s ease;
+    pointer-events:none;
+}
+
+.certificate-card.active{
+    opacity:1;
+    transform:scale(1);
+    pointer-events:auto;
+}
+
+.certificate-card img{
+    width:100%;
+    height:520px;          
+    object-fit:contain;   
+    background:#fff;
+    display:block;
+}
+
+.certificate-card .cert-content{
+    padding:22px;
+    text-align:center;
+}
+
+.certificate-card h3{
+    color:var(--purple-deep);
+    margin-bottom:8px;
+    font-size:1.3rem;
+}
+
+.certificate-card p{
+    color:var(--muted);
+    font-size:1rem;
+}
+
+.nav-btn{
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:24px;
+    color:white;
+    background:linear-gradient(135deg,var(--purple),var(--purple-deep));
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    transform:scale(1.1);
+}
+
+@media(max-width:768px){
+
+    .certificate-slider{
+        gap:15px;
+    }
+
+    .certificate-wrapper{
+        width:300px;
+        height:340px;
+    }
+
+    .certificate-card img{
+        height:200px;
+    }
+
+    .nav-btn{
+        width:45px;
+        height:45px;
+        font-size:20px;
+    }
+
+}
+</style>
 </head>
 <body>
-  <nav id="desktop-nav">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <nav>
     <div class="logo">
-        <img src="images/Logo.png" alt="My logo" height="220" width="220">
+        <img src="images/Logo.png" alt="BeaBii Logo">
     </div>
-    <div>
-      <ul class="nav-links">
-        <li><a href="#aboutme">ABOUT ME</a></li>
-        <li><a href="#skills">SKILLS</a></li>
-        <li><a href="#projects">PROJECTS</a></li>
-        <li><a href="#certificates">CERTIFICATES</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
-    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
-  <section id="profile">
-    <div class ="sectionpic-container">
-        <img src="images/Bg.png" alt="shape background" class="bg-image">
-        <img src="images/Me.png" alt="picture of Me" class="profile-image">
+  <!-- HERO -->
+  <section class="hero reveal">
+
+    <div class="hero-container">
+    
+        <div class="hero-image">
+    
+            <img src="images/Bg.png" class="bg-image">
+    
+            <img src="images/profilepic.png"
+                 class="profile-image"
+                 alt="Bea Bianca">
+    
+        </div>
+    
+        <div class="hero-content">
+    <span class="eyebrow">Welcome</span>
+    <p class="greet">Hi! I'm</p>
+    <h1>Bea Bianca Ancheta</h1>
+    <p class="role">CS Student</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#" download>⬇ Download CV</a>
+      <a class="btn btn-outline" href="internship.html">🎓 Internship</a>
     </div>
-    <div class="sectiontext">
-        <p class="sectiontext-p1">Hi! I'm</p>
-        <h1 class="myname">Bea Bianca Ancheta</h1>
-        <p class="sectiontext-p2">CS Student</p>
-        <div class="btn-container">
-            <!-- Download CV -->
-            <a href="files/Ancheta_ATS_Resume.pdf" download class="btn btn-outline">
-                Download CV
-            </a>
+    <div class="socials">
+
+        <a href="https://www.facebook.com/beabiiancheta" target="_blank">
+        <img src="images/facebook.png">
+        </a>
         
-            <!-- Internship -->
-            <a href="internship.html" class="btn btn-outline">
-                Internship
-            </a>
+        <a href="https://github.com/beabiiancheta" target="_blank">
+        <img src="images/github.png">
+        </a>
+        
+        <a href="https://www.instagram.com/beabii/" target="_blank">
+        <img src="images/instagram.png">
+        </a>
+        
+        <a href="https://www.linkedin.com/in/beabiiancheta" target="_blank">
+        <img src="images/linkedin.png">
+        </a>
+        
         </div>
-        <div id ="socials-container">
-            <img src="images/facebook.png"
-                alt="Facebook"
-                onclick="location.href='https://www.facebook.com/beabiiancheta'">
-            <img src="images/github.png"
-                alt="Github"
-                onclick="location.href='https://github.com/beabiiancheta'">
-
-            <img src="images/instagram.png"
-                alt="Instagram"
-                onclick="location.href='https://www.instagram.com/beabii/'">
-
-            <img src="images/linkedin.png"
-                alt="LinkedIn"
-                onclick="location.href='https://www.linkedin.com/in/beabiiancheta'">
+</div>
+</div>
+  </section>
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <span class="eyebrow">Personal Information</span>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="card">
+        <p>Welcome to my portfolio! You can call me <strong>BeaBii</strong>. I'm a Computer Science student specializing in Machine Learning, with a passion for discovering how technology and data can work together to solve real-world problems.</p>
+        <p>I enjoy creating clean and interactive web interfaces using <strong>HTML</strong> and <strong>CSS</strong>, while working behind the scenes with <strong>SQL</strong> and <strong>Power BI</strong> to organize, analyze, and visualize data.</p>
+        <p>I believe every project is an opportunity to learn, grow, and challenge myself. I'm excited to build solutions that make a positive impact.</p>
+      </div>
+      <div class="card">
+        <h3>🎓 Education</h3>
+    
+        <div class="edu-item">
+    
+            <img src="images/malayan.png" alt="Mapua Malayan Colleges Laguna" class="school-logo">
+    
+            <div class="edu-info">
+                <strong>Mapua Malayan Colleges Laguna</strong>
+                <span>BS Computer Science (2022–Present)</span>
+                <span>• Dean's Lister</span>
+                <span>• Full Academic Scholarship (2023)</span>
+            </div>
+    
         </div>
+    
+        <div class="edu-item">
+    
+            <img src="images/feu.png" alt="Far Eastern University Alabang" class="school-logo">
+    
+            <div class="edu-info">
+                <strong>Far Eastern University Alabang</strong>
+                <span>BS Computer Science (2021–2022)</span>
+                <span>• Dean's Lister</span>
+            </div>
+    
+        </div>
+    </div>
+    <div class="interest-card reveal">
+      <h3>💜 Interests</h3>
+      <p>Dancing, listening to music, watching horror movies, buying new clothes, trying out new cafes, and playing Mobile Legends are just a few of the things I enjoy doing! 😄</p>
     </div>
   </section>
-  <section id="aboutme">
-    <p class="sectiontext-p1">PERSONAL INFORMATION</p>
-    <h1 class="title">About Me</h1>
+  <!-- SKILLS -->
+<section id="skills" class="reveal">
+    <span class="eyebrow">Get to Know</span>
+    <h2 class="section-title">My Skills</h2>
 
-    <div class="about-container">
+    <div class="skills-grid">
 
-        <!-- LEFT : PROFILE PICTURE -->
-        <div class="about-image">
-            <img src="images/profilepic.png"
-                 alt="My Profile Picture"
-                 class="my-pic">
-        </div>
+        <!-- Programming Languages -->
+        <div class="card skill-card">
+            <h3>💻 Programming Languages</h3>
 
-        <!-- CENTER : ABOUT ME -->
-        <div class="about-text">
-
-            <p>
-                Welcome to my portfolio! You can call me <strong>BeaBii</strong>.
-                I'm a <strong>Computer Science</strong> student specializing in
-                Machine Learning, with a passion for discovering
-                how technology and data can work together to solve real-world
-                problems.
-            </p>
-
-            <br>
-
-            <p>
-                I enjoy creating clean and interactive web interfaces using
-                <strong>HTML</strong> and <strong>CSS</strong>, while working
-                behind the scenes with <strong>SQL</strong> and
-                <strong>Power BI</strong> to organize, analyze, and visualize
-                data. Whether I'm designing a responsive website, managing
-                databases, or transforming data into meaningful insights,
-                I enjoy bringing ideas to life through technology.
-            </p>
-
-            <br>
-
-            <p>
-                I believe every project is an opportunity to learn, grow,
-                and challenge myself. As I continue expanding my knowledge
-                in web development and data analytics, I'm excited to build
-                solutions that make a positive impact.
-            </p>
-
-        </div>
-
-        <!-- RIGHT : EDUCATION -->
-        <div class="aboutdetails-container">
-
-            <h3>Education</h3>
-
-            <div class="details-container">
-                <img src="images/malayan.png" class="school-logo">
-
-                <p>
-                    <strong>Mapua Malayan Colleges Laguna</strong><br>
-                    Bachelor of Science in Computer Science (2022–Present)
-                    <br>
-                    • Consistent Dean's Lister
-                    <br>
-                    • Full Academic Scholarship
-                </p>
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/c++.png" alt="C++">
+                        <span>C++</span>
+                    </div>
+                    <span>Intermediate</span>
+                </div>
+                <div class="bar">
+                    <span data-w="70%"></span>
+                </div>
             </div>
 
-            <div class="details-container">
-                <img src="images/feu.png" class="school-logo">
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/csharp.png" alt="C#">
+                        <span>C#</span>
+                    </div>
+                    <span>Intermediate</span>
+                </div>
+                <div class="bar">
+                    <span data-w="70%"></span>
+                </div>
+            </div>
 
-                <p>
-                    <strong>Far Eastern University Alabang</strong><br>
-                    Bachelor of Science in Computer Science (2021–2022)
-                    <br>
-                    • Consistent Dean's Lister
-                </p>
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/python.png" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <span>Beginner</span>
+                </div>
+                <div class="bar">
+                    <span data-w="45%"></span>
+                </div>
             </div>
 
         </div>
-    </div>
 
-            <!-- Interests -->
-            <div class="text-container">
-                <h3>Interest</h3>
+        <!-- Web Development -->
+        <div class="card skill-card">
+            <h3>🌐 Web Development</h3>
 
-                <p>
-                    Dancing, listening to music, watching horror movies, buying new clothes, trying out new cafes, and playing Mobile Legends are just a few of the things I enjoy doing! 😄
-                </p>
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/sql.png" alt="SQL">
+                        <span>SQL</span>
+                    </div>
+                    <span>Advanced</span>
+                </div>
+                <div class="bar">
+                    <span data-w="85%"></span>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/html.png" alt="HTML">
+                        <span>HTML</span>
+                    </div>
+                    <span>Intermediate</span>
+                </div>
+                <div class="bar">
+                    <span data-w="70%"></span>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/css.png" alt="CSS">
+                        <span>CSS</span>
+                    </div>
+                    <span>Intermediate</span>
+                </div>
+                <div class="bar">
+                    <span data-w="70%"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Creative Design -->
+        <div class="card skill-card">
+            <h3>🎨 Creative Design</h3>
+
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/powerbi.webp" alt="Power BI">
+                        <span>Power BI</span>
+                    </div>
+                    <span>Advanced</span>
+                </div>
+                <div class="bar">
+                    <span data-w="85%"></span>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/figma.png" alt="Figma">
+                        <span>Figma</span>
+                    </div>
+                    <span>Advanced</span>
+                </div>
+                <div class="bar">
+                    <span data-w="85%"></span>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="row">
+                    <div class="skill-left">
+                        <img src="images/canva.png" alt="Canva">
+                        <span>Expert</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <span data-w="95%"></span>
+                </div>
             </div>
 
         </div>
 
     </div>
 </section>
-  <section id ="skills">
-    <p class="sectiontext-p1">GET TO KNOW</p>
-    <h1 class="title">My Skills</h1>
-    <div class="skillsdetails-container">
-        <!-- Skill Category 1 -->
-        <div class="skills-category">
-            <h2 class="skills-name">Programming <br> Languages</h2>
-            <div class="skills-container">
-                <ul>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>C++</h3>
-                            <div class="logo-container"><img src="images/c++.png" alt="C++ Logo"></div>
-                        </div>
-                        <p>Intermediate</p>
-                    </li>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>C#</h3>
-                            <div class="logo-container"><img src="images/csharp.png" alt="C# Logo"></div>
-                        </div>
-                        <p>Intermediate</p>
-                    </li>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>Python</h3>
-                            <div class="logo-container"><img src="images/python.png" alt="Python Logo"></div>
-                        </div>
-                        <p>Beginner</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Skill Category 2 -->
-        <div class="skills-category">
-            <h2 class="skills-name">Web <br> Development</h2>
-            <div class="skills-container">
-                <ul>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>HTML</h3>
-                            <div class="logo-container"><img src="images/html.png" alt="HTML Logo"></div>
-                        </div>
-                        <p>Intermediate</p>
-                    </li>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>CSS</h3>
-                            <div class="logo-container"><img src="images/css.png" alt="CSS Logo"></div>
-                        </div>
-                        <p>Intermediate</p>
-                    </li>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>SQL</h3>
-                            <div class="logo-container"><img src="images/sql.png" alt="SQL Logo"></div>
-                        </div>
-                        <p>Expert</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Skill Category 3 -->
-        <div class="skills-category">
-            <h2 class="skills-name">Creative <br> Design</h2>
-            <div class="skills-container">
-                <ul>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>Canva</h3>
-                            <div class="logo-container"><img src="images/canva.png" alt="canva Logo"></div>
-                        </div>
-                        <p>Expert</p>
-                    </li>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>Figma</h3>
-                            <div class="logo-container"><img src="images/figma.png" alt="figma Logo"></div>
-                        </div>
-                        <p>Advanced</p>
-                    </li>
-                    <li>
-                        <div class="skill-wrapper">
-                            <h3>Power BI</h3>
-                            <div class="logo-container">
-                                <img src="images/powerbi.webp" alt="Power BI Logo">
-                            </div>
-                        </div>
-                        <p>Intermediate</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <span class="eyebrow">Here Are My Recent</span>
+    <h2 class="section-title">Group Projects</h2>
+    <p class="proj-intro">I don't have any projects of my own at the moment, but hopefully, I will soon! 😄</p>
+    <div class="projects">
+      <div class="project"><div class="thumb"><img src="images/alqmi.jpg"></div><h3>ALQMI | Thesis</h3><p>An AR and CV integrated Android for Grade 7 General Chemistry.</p><a href='https://github.com/Naull-GH/alqmi-admin.git'">See Here →</a></div>
+      <div class="project"><div class="thumb"><img src="images/Addict.jfif"></div><h3>Addict-O-Meter</h3><p>A mobile app prototype for addiction awareness.</p><a href='https://github.com/eneriopaolo/IT140P-CS190-3P-FP'">See Here →</a></div>
+      <div class="project"><div class="thumb"><img src="images/DriverLicense.jfif"></div><h3>Driver License</h3><p>Facial recognition for driver license using Python.</p><a href='https://github.com/Naull-GH/driver_recognition_system.git'">See Here →</a></div>
+      <div class="project"><div class="thumb"><img src="images/GameProject.png"></div><h3>Night's Life</h3><p>An RPG game with four scenarios and difficulty levels.</p><a href='https://github.com/beabiiancheta/NightsLifeGame'">See Here →</a></div>
+      <div class="project"><div class="thumb"><img src="images/NoteTaking.png"></div><h3>Pocket Note</h3><p>UI/UX prototype application created in Figma.</p><a href='https://www.figma.com/file/CYiRuWq8MAelSg5TRdp0E0/PocketNote_Prototype-ANCHETA-AGUIRANG-ENERIO?type=design&mode=design&t=R2axv6imZ42FT4JM-1'">See Here →</a></div>
+      <div class="project"><div class="thumb"><img src="images/ClickASeat.png"></div><h3>Click-A-Seat</h3><p>A movie ticket reservation site backed by SQL.</p><a href=https://github.com/beabiiancheta/ClickASeat'">See Here →</a></div>
     </div>
-</section>
-  <section id ="projects">
-  <p class="sectiontext-p1">HERE ARE MY RECENT</p>
-  <h2 class="title">Group Projects</h2>
-  <p class="message">I don't have any projects of my own at the moment, but hopefully, I will soon! 😄</p>
-  <div class="detailsprojects-container">
+  </section>
+ <!-- CERTIFICATES -->
+<section id="certificates" class="reveal">
 
-    <!-- Project 1 -->
-    <div class="article-container">
-        <img src="images/alqmi.jpg" alt="ALQMI" class="project"/>
-        <h2 class="projects-container">ALQMI | Thesis</h2>
-        <p>An AR and CV integrated Android for Grade 7 in General Chemistry</p>
-        <div class="button-container"></div>
-        <button class="btncolor" onclick="location.href='https://github.com/Naull-GH/alqmi-admin.git'">See Here</button>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="article-container">
-        <img src="images/Addict.jfif" alt="Addict O Meter" class="project"/>
-        <h2 class="projects-container">Addict-O-Meter</h2> 
-        <p>A mobile app prototype for addiction awareness</p>
-        <div class="button-container"></div>
-        <button class="btncolor" onclick="location.href='https://github.com/eneriopaolo/IT140P-CS190-3P-FP'">See Here</button>
-    </div>
-    <!-- Project 3 -->
-    <div class="article-container">
-        <img src="images/DriverLicense.jfif" alt="Addict" class="project"/>
-        <h2 class="projects-container">Driver License</h2>
-        <p>A facial recognition for driver license using Python</p>
-        <div class="button-container"></div>
-        <button class="btncolor" onclick="location.href='https://github.com/Naull-GH/driver_recognition_system.git'">See Here</button>
-    </div>
-
-</div>
-
-<div class="detailsprojects-container">
-
-    <!-- Project 4 -->
-    <div class="article-container">
-        <img src="images/GameProject.png" alt="Night's Life" class="project"/>
-        <h2 class="projects-container">Night's Life</h2>
-        <p>A RPG game project with four different scenarios and difficulty levels</p>
-        <div class="button-container"></div>
-        <button class="btncolor" onclick="location.href='https://github.com/beabiiancheta/NightsLifeGame'">See Here</button>
-    </div>
-
-    <!-- Project 5 -->
-    <div class="article-container">
-        <img src="images/NoteTaking.png" alt="Note Taking" class="project"/>
-        <h2 class="projects-container">Pocket Note</h2>
-        <p>A UI/UX design prototype application created using Figma</p>
-        <div class="button-container"></div>
-        <button class="btncolor" onclick="location.href='https://www.figma.com/file/CYiRuWq8MAelSg5TRdp0E0/PocketNote_Prototype-ANCHETA-AGUIRANG-ENERIO?type=design&mode=design&t=R2axv6imZ42FT4JM-1'">See Here</button>
-    </div>
-
-    <!-- Project 6 -->
-    <div class="article-container">
-        <img src="images/ClickASeat.png" alt="Click A Seat" class="project"/>
-        <h2 class="projects-container">Click-A-Seat</h2>
-        <p>A movie ticket reservation website developed with a SQL database</p>
-        <div class="button-container"></div>
-        <button class="btncolor" onclick="location.href='https://github.com/beabiiancheta/ClickASeat'">See Here</button>
-    </div>
-
-</div></section>
-
-<!-- ============================
-     CERTIFICATES
-============================ -->
-
-<section id="certificates">
-
-    <p class="sectiontext-p1">SHOWCASING MY PROFESSIONAL</p>
-    <h1 class="title">Certificates</h1>
+    <span class="eyebrow">Showcasing My Professional</span>
+    <h2 class="section-title">Certificates</h2>
 
     <div class="certificate-slider">
 
-        <button type="button" class="nav-btn prev">&#10094;</button>
+        <button class="nav-btn prev">&#10094;</button>
 
         <div class="certificate-wrapper">
 
             <div class="certificate-card active">
                 <img src="images/ai.jpg" alt="IBM AI Developer">
-                <h3>IBM AI Developer</h3>
-                <p>Coursera • IBM</p>
+                <div class="cert-content">
+                    <h3>IBM AI Developer</h3>
+                    <p>Coursera • IBM</p>
+                </div>
             </div>
 
             <div class="certificate-card">
                 <img src="images/ml.jpg" alt="IBM Machine Learning">
-                <h3>IBM Machine Learning</h3>
-                <p>Coursera • IBM</p>
+                <div class="cert-content">
+                    <h3>IBM Machine Learning</h3>
+                    <p>Coursera • IBM</p>
+                </div>
             </div>
 
             <div class="certificate-card">
                 <img src="images/employ.jpg" alt="Employability Skills">
-                <h3>Employability Skills - JobReady</h3>
-                <p>Wadhwani Foundation</p>
+                <div class="cert-content">
+                    <h3>Employability Skills - JobReady</h3>
+                    <p>Wadhwani Foundation</p>
+                </div>
             </div>
 
             <div class="certificate-card">
                 <img src="images/aws.jpg" alt="AWS Academy">
-                <h3>AWS Academy Graduate - AWS Academy Cloud Foundations</h3>
-                <p>AWS Academy</p>
+                <div class="cert-content">
+                    <h3>AWS Cloud Foundations</h3>
+                    <p>AWS Academy</p>
+                </div>
             </div>
 
         </div>
 
-        <button type="button" class="nav-btn next">&#10095;</button>
+        <button class="nav-btn next">&#10095;</button>
 
     </div>
 
 </section>
-
-<!-- ============================
-     CONTACT
-============================ -->
-
-<section id="contact">
-
-    <p class="sectiontext-p1">Get In Touch</p>
-    <h1 class="title">Contact Me</h1>
-
-    <p class="contact-description">
-        Thank you for visiting my portfolio! <br>
-        If you'd like to connect, collaborate, or have any questions,
-        feel free to reach out through my email below.
-    </p>
-
-    <div class="contact-container">
-
-        <div class="contact-item">
-            <img src="images/mail.png" alt="Email" class="contact-icon">
-
-            <a href="mailto:anchetabea1@gmail.com">
-                anchetabea1@gmail.com
-            </a>
-
-        </div>
-
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+    <span class="eyebrow">Get In Touch</span>
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-box">
+      <p>Thank you for visiting my portfolio! If you'd like to connect, collaborate, or have any questions, feel free to reach out through my email below.</p>
+      <a class="email" href="mailto:anchetabea1@gmail.com">✉ anchetabea1@gmail.com</a>
     </div>
-
-</section>
-
+  </section>
+  <footer>© 2026 Bea Bianca Ancheta · Made with 💜</footer>
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        // animate skill bars inside
+        e.target.querySelectorAll('.bar > span').forEach(b => b.style.width = b.dataset.w);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 <script src="card.js"></script>
 
 </body>
+</html>
