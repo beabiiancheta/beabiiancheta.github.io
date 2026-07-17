@@ -442,6 +442,52 @@
     font-size:1rem;
 }
 
+.contact-box{
+    max-width:700px;
+    margin:0 auto;
+    padding:2.5rem;
+    background:var(--card);
+    backdrop-filter:blur(14px);
+    border:1px solid var(--border);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+}
+
+.contact-box p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:2rem;
+}
+
+.email{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    padding:16px 34px;
+
+    background:linear-gradient(135deg,var(--purple),var(--purple-deep));
+    color:#fff;
+    text-decoration:none;
+    font-size:1rem;
+    font-weight:600;
+
+    border-radius:999px;
+    box-shadow:0 15px 35px rgba(108,76,168,.35);
+
+    transition:.3s ease;
+}
+
+.email:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 22px 45px rgba(108,76,168,.45);
+}
+
+.email:active{
+    transform:scale(.98);
+}
+
 .nav-btn{
     width:55px;
     height:55px;
@@ -818,11 +864,18 @@
   <section id="contact" class="reveal">
     <span class="eyebrow">Get In Touch</span>
     <h2 class="section-title">Contact Me</h2>
+
     <div class="contact-box">
-      <p>Thank you for visiting my portfolio! If you'd like to connect, collaborate, or have any questions, feel free to reach out through my email below.</p>
-      <a class="email" href="mailto:anchetabea1@gmail.com">✉ anchetabea1@gmail.com</a>
+        <p>
+            Thank you for visiting my portfolio! If you'd like to connect,
+            collaborate, or have any questions, feel free to reach out.
+        </p>
+
+        <a class="email" href="mailto:anchetabea1@gmail.com">
+            📧 anchetabea1@gmail.com
+        </a>
     </div>
-  </section>
+</section>
   <footer>© 2026 Bea Bianca Ancheta · Made with 💜</footer>
 <script>
   const io = new IntersectionObserver(entries => {
