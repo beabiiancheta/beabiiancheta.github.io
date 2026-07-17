@@ -91,41 +91,48 @@
 }
 
 .hero-image{
-    position: relative;
-    width: 420px;
-    height: 420px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position:relative;
+    width:320px;
+    height:320px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* Rotating background */
+/* Decorative shape behind the profile */
 .bg-image{
-    position: absolute;
-    width: 120%;
-    height: 100%;
-    object-fit: contain;
-    left: 45%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    animation: spin 20s linear infinite;
-    opacity: .35;
-    z-index: 0;
+    position:absolute;
+
+    width:430px;
+    height:auto;
+
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    object-fit:contain;
+    opacity:.55;
+
+    z-index:1;
+    pointer-events:none;
+
+    animation:spin 30s linear infinite;
 }
 
-/* Your profile picture */
+/* Profile picture */
 .profile-image{
-    position: relative;
-    width: 280px;
-    height: 280px;
+    position:relative;
 
-    object-fit: cover;      /* fills the circle */
-    border-radius: 50%;     /* makes it a perfect circle */
+    width:250px;
+    height:250px;
 
-    border: 8px solid rgba(255,255,255,.9);
-    box-shadow: 0 20px 50px rgba(0,0,0,.18);
+    object-fit:cover;
+    border-radius:50%;
 
-    z-index: 2;
+    border:8px solid #fff;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+    z-index:2;
 }
 
 .hero-content{
@@ -136,10 +143,10 @@
 
 @keyframes spin{
     from{
-        transform:rotate(0);
+        transform:translate(-50%, -50%) rotate(0deg);
     }
     to{
-        transform:rotate(360deg);
+        transform:translate(-50%, -50%) rotate(360deg);
     }
 }
   .hero h1{
@@ -187,7 +194,11 @@
 }
   .card:hover{transform:translateY(-5px)}
   /* ABOUT */
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;text-align:left}
+  .about-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1.5rem;
+}
   .about-grid p{color:var(--ink);line-height:1.8;margin-bottom:.8rem;font-size:.95rem}
   .about-grid h3{color:var(--purple-deep);margin-bottom:.8rem;font-size:1.1rem}
   .edu-item{
@@ -234,9 +245,7 @@
     line-height:1.7;
 }
 .interest-card{
-    width:100%;
-    margin-top:1.5rem;
-    padding:1.8rem 2rem;
+    grid-column:1 / -1;   /* span across both columns */
 
     background:linear-gradient(
         135deg,
@@ -246,21 +255,19 @@
 
     border:1px solid var(--border);
     border-radius:22px;
+    padding:1.8rem;
     box-shadow:var(--shadow);
-
     text-align:left;
 }
 
 .interest-card h3{
     color:var(--purple-deep);
     margin-bottom:.8rem;
-    font-size:1.15rem;
 }
 
 .interest-card p{
     color:var(--muted);
     line-height:1.8;
-    font-size:.95rem;
 }
   /* SKILLS */
 
@@ -538,49 +545,67 @@
 </div>
 </div>
   </section>
-  <!-- ABOUT -->
-  <section id="about" class="reveal">
+<!-- ABOUT -->
+<section id="about" class="reveal">
     <span class="eyebrow">Personal Information</span>
     <h2 class="section-title">About Me</h2>
+
     <div class="about-grid">
-      <div class="card">
-        <p>Welcome to my portfolio! You can call me <strong>BeaBii</strong>. I'm a Computer Science student specializing in Machine Learning, with a passion for discovering how technology and data can work together to solve real-world problems.</p>
-        <p>I enjoy creating clean and interactive web interfaces using <strong>HTML</strong> and <strong>CSS</strong>, while working behind the scenes with <strong>SQL</strong> and <strong>Power BI</strong> to organize, analyze, and visualize data.</p>
-        <p>I believe every project is an opportunity to learn, grow, and challenge myself. I'm excited to build solutions that make a positive impact.</p>
-      </div>
-      <div class="card">
-        <h3>🎓 Education</h3>
-    
-        <div class="edu-item">
-    
-            <img src="images/malayan.png" alt="Mapua Malayan Colleges Laguna" class="school-logo">
-    
-            <div class="edu-info">
-                <strong>Mapua Malayan Colleges Laguna</strong>
-                <span>BS Computer Science (2022–Present)</span>
-                <span>• Dean's Lister</span>
-                <span>• Full Academic Scholarship (2023)</span>
-            </div>
-    
+
+        <!-- About -->
+        <div class="card">
+            <p>Welcome to my portfolio! You can call me <strong>BeaBii</strong>. I'm a Computer Science student specializing in Machine Learning, with a passion for discovering how technology and data can work together to solve real-world problems.</p>
+
+            <p>I enjoy creating clean and interactive web interfaces using <strong>HTML</strong> and <strong>CSS</strong>, while working behind the scenes with <strong>SQL</strong> and <strong>Power BI</strong> to organize, analyze, and visualize data.</p>
+
+            <p>I believe every project is an opportunity to learn, grow, and challenge myself. I'm excited to build solutions that make a positive impact.</p>
         </div>
-    
-        <div class="edu-item">
-    
-            <img src="images/feu.png" alt="Far Eastern University Alabang" class="school-logo">
-    
-            <div class="edu-info">
-                <strong>Far Eastern University Alabang</strong>
-                <span>BS Computer Science (2021–2022)</span>
-                <span>• Dean's Lister</span>
+
+        <!-- Education -->
+        <div class="card">
+
+            <h3>🎓 Education</h3>
+
+            <div class="edu-item">
+                <img src="images/malayan.png"
+                     alt="Mapua Malayan Colleges Laguna"
+                     class="school-logo">
+
+                <div class="edu-info">
+                    <strong>Mapua Malayan Colleges Laguna</strong>
+                    <span>BS Computer Science (2022–Present)</span>
+                    <span>• Dean's Lister</span>
+                    <span>• Full Academic Scholarship (2023)</span>
+                </div>
             </div>
-    
+
+            <div class="edu-item">
+                <img src="images/feu.png"
+                     alt="Far Eastern University Alabang"
+                     class="school-logo">
+
+                <div class="edu-info">
+                    <strong>Far Eastern University Alabang</strong>
+                    <span>BS Computer Science (2021–2022)</span>
+                    <span>• Dean's Lister</span>
+                </div>
+            </div>
+
         </div>
+
+        <!-- Interests -->
+        <div class="interest-card reveal">
+            <h3>💜 Interests</h3>
+            <p>
+                Dancing, listening to music, watching horror movies,
+                buying new clothes, trying out new cafes,
+                and playing Mobile Legends are just a few of the things I enjoy doing! 😄
+            </p>
+        </div>
+
     </div>
-    <div class="interest-card reveal">
-      <h3>💜 Interests</h3>
-      <p>Dancing, listening to music, watching horror movies, buying new clothes, trying out new cafes, and playing Mobile Legends are just a few of the things I enjoy doing! 😄</p>
-    </div>
-  </section>
+
+</section>
   <!-- SKILLS -->
 <section id="skills" class="reveal">
     <span class="eyebrow">Get to Know</span>
