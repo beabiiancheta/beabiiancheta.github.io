@@ -128,21 +128,32 @@
     .nav-links{gap:1rem;flex-wrap:wrap;justify-content:center}
     .panel{padding:1.4rem}
   }
+  .accomplishment-images{
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  margin-top:2rem;
+  flex-wrap:wrap;
+}
+
+.accomplishment-images img{
+  width:280px;
+  max-width:100%;
+  border-radius:16px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+
+.accomplishment-images img:hover{
+  transform:scale(1.03);
+}
 </style>
 </head>
 <body>
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="blob b3"></div>
-  <nav>
-    <div class="logo">BeaBii.</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#projects">Projects</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </nav>
   <header class="hero">
     <span class="eyebrow">My Professional Experience</span>
     <h1>Internship at Ampleon Philippines, Inc.</h1>
@@ -193,6 +204,11 @@
         <li>Presenting dashboard updates and gathering user feedback.</li>
         <li>Preparing Release-to-Production (R2P) documentation.</li>
       </ul>
+
+      <div class="accomplishment-images">
+        <img src="images/page1.jpg" alt="Dashboard Screenshot">
+        <img src="images/page2.jpg" alt="SQL Development">
+      </div>
     </section>
     <section class="panel reveal" id="conclusion">
       <h2>Conclusion</h2>
