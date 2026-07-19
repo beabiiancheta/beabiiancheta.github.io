@@ -84,9 +84,9 @@
     display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:1.5rem;
   }
   .tab{
-    padding:.7rem 1.2rem;border:1px solid var(--border);border-radius:999px;
-    background:var(--card);cursor:pointer;font-family:inherit;font-weight:500;color:var(--ink);
-    transition:.25s;font-size:.9rem;
+    padding:0.85rem 1.6rem;border:1px solid var(--border);border-radius:30px;
+    background:var(--card);cursor:pointer;font-family:inherit;font-weight:600;color:var(--ink);
+    transition:all .3s ease;font-size:.0.95 rem;
   }
   .tab:hover{transform:translateY(-2px)}
   .tab.active{background:linear-gradient(135deg,var(--purple),var(--purple-deep));color:#fff;border-color:transparent;box-shadow:var(--shadow)}
@@ -159,61 +159,61 @@
     <h1>Internship at Ampleon Philippines, Inc.</h1>
     <p>IT Intern supporting software development, database management, reporting, and manufacturing systems in a global semiconductor company.</p>
     <div class="stats">
-      <div class="stat"><div class="num" data-count="486">0</div><div class="label">Hours Rendered</div></div>
-      <div class="stat"><div class="num" data-count="5">0</div><div class="label">Core Technologies</div></div>
+      <div class="stat"><div class="num" data-count="399+">0</div><div class="label">Hours Rendered</div></div>
+      <div class="stat"><div class="num" data-count="5">0</div><div class="label">Technologies Used</div></div>
       <div class="stat"><div class="num" data-count="7">0</div><div class="label">Key Accomplishments</div></div>
       <div class="stat"><div class="num" data-count="1">0</div><div class="label">Dashboard Delivered</div></div>
     </div>
   </header>
   <main>
     <div class="tabs" role="tablist">
-      <button class="tab active" data-tab="overview">Company Overview</button>
-      <button class="tab" data-tab="tasks">Tasks</button>
-      <button class="tab" data-tab="hours">Timeline</button>
-      <button class="tab" data-tab="accomplishments">Accomplishments</button>
-      <button class="tab" data-tab="conclusion">Conclusion</button>
+      <button class="tab active" data-tab="company">Company Background</button>
+      <button class="tab" data-tab="problem">Problem</button>
+      <button class="tab" data-tab="development">Development Process</button>
+      <button class="tab" data-tab="output">Final Output</button>
+      <button class="tab" data-tab="learnings">Learnings</button>
     </div>
-    <section class="panel active reveal" id="overview">
-      <h2>Company Overview</h2>
-      <p>Ampleon Philippines, Inc. is a global semiconductor company that develops RF power solutions for industrial, communication, medical, and scientific applications. As an IT Intern, I work with the Information Technology Department to support software development, database management, reporting, and manufacturing systems.</p>
-      <p>This internship has allowed me to experience how technology supports production and business operations in a manufacturing environment.</p>
+    <section class="panel active reveal" id="company">
+      <h2>Company Background</h2>
+      <p>Ampleon Philippines, Inc. is a global semiconductor manufacturing company that develops RF power solutions for industrial, communication, medical, and scientific applications. The student completed the internship under the Information Technology Department, where technology is used to support manufacturing operations, production systems, and business reporting.</p>
+      <p>Throughout the internship, the student was exposed to real-world software development, database management, enterprise applications, and technical support. This experience provided a better understanding of how information technology contributes to daily business operations in a manufacturing environment.</p>
     </section>
-    <section class="panel reveal" id="tasks">
-      <h2>Nature of Assignments &amp; Tasks</h2>
-      <p>My internship started with company orientation and technical training on SAP ERP, Camstar MES, SQL Server Management Studio (SSMS), and Power BI. I also perform daily SAP ERP monitoring to ensure production transactions are processed correctly.</p>
-      <p>As my internship continues, I have been working on SQL database development — creating tables, stored procedures, SQL jobs, and validating production data. I am also developing the <strong>Material Consumption Report</strong>, a Power BI dashboard requested by the Assembly Engineering and Process Control teams. The project involves data extraction, transformation, validation, dashboard development, client presentations, user feedback, and Release-to-Production (R2P) documentation.</p>
+    <section class="panel reveal" id="problem">
+      <h2>Problem</h2>
+      <p>The Assembly Engineering and Process Control teams needed a centralized Material Consumption Report to monitor production materials more efficiently. Previously, retrieving this information required manually checking multiple sources, making the process time-consuming and difficult to analyze.</p>
+      <p>The goal of the project was to automate data collection, organize production information into a single database, and develop an interactive Power BI dashboard that allows users to filter, analyze, and monitor material consumption more easily.</p>
     </section>
-    <section class="panel reveal" id="hours">
+    <section class="panel reveal" id="development">
       <h2>Total Hours Rendered</h2>
-      <p>My internship began on <strong>May 11, 2026</strong> and is currently ongoing, with an expected completion date of <strong>July 27, 2026</strong>.</p>
+      <p>My internship began on <strong>May 11, 2026</strong> and is currently ongoing, with an expected completion date of <strong>August 11, 2026</strong>.</p>
       <div class="timeline">
-        <div class="tl-item"><strong>May 11, 2026 — Onboarding</strong><p>Company orientation and technical training on SAP ERP, Camstar MES, SSMS, and Power BI.</p></div>
-        <div class="tl-item"><strong>Weeks 2–4 — Daily Operations</strong><p>SAP ERP monitoring and validation of production transactions.</p></div>
-        <div class="tl-item"><strong>Ongoing — Development</strong><p>SQL database work and building the Material Consumption Report in Power BI.</p></div>
-        <div class="tl-item"><strong>July 27, 2026 — Completion</strong><p>Final dashboard turnover and R2P documentation.</p></div>
+        <div class="tl-item"><strong>Requirement Review</strong></div>
+        <div class="tl-item"><strong>Database Design</strong></div>
+        <div class="tl-item"><strong>SQL Development</strong></div>
+        <div class="tl-item"><strong>Data Development</strong></div>
+        <div class="tl-item"><strong>Power BI Dashboard</strong></div>
+        <div class="tl-item"><strong>User Demonstration</strong></div>
+        <div class="tl-item"><strong>UAT Enhancement</strong></div>
+        <div class="tl-item"><strong>Release to Production</strong></div>
+        <p>The student first reviewed the project requirements with the assigned engineer to understand the needed reports and business rules. SQL tables, stored procedures, and SQL Jobs were developed to automate the extraction, transformation, and loading (ETL) of production data. After validating the data using SAP ERP and Camstar MES, the information was connected to Power BI to develop interactive dashboards. The completed report was demonstrated to users, revised based on their feedback, and prepared for Release-to-Production (R2P).</p>
       </div>
     </section>
-    <section class="panel reveal" id="accomplishments">
-      <h2>Key Accomplishments</h2>
-      <ul>
-        <li>Developing the Material Consumption Report using SQL Server and Power BI.</li>
-        <li>Performing data extraction, transformation, validation, and dashboard development.</li>
-        <li>Monitoring daily SAP ERP production transactions.</li>
-        <li>Validating production data using the Camstar Test Server.</li>
-        <li>Creating SQL tables, stored procedures, and SQL jobs.</li>
-        <li>Presenting dashboard updates and gathering user feedback.</li>
-        <li>Preparing Release-to-Production (R2P) documentation.</li>
-      </ul>
-
+    <section class="panel reveal" id="output">
+      <h2>Final Output of Material Consumption Report</h2>
       <div class="accomplishment-images">
         <img src="images/page1.jpg" alt="Dashboard Screenshot">
+        <p>Material Consumption Dashboard Page 1</p>
         <img src="images/page2.jpg" alt="SQL Development">
+        <p>Material Consumption Dashboard Page 2</p>
+        <p>The completed Material Consumption Report allows engineers to monitor production materials using interactive filters, summarize consumed quantities, and view detailed production records. SQL Server handles the automated data processing, while Power BI provides an easy-to-use dashboard for reporting and analysis.</p>
       </div>
     </section>
-    <section class="panel reveal" id="conclusion">
-      <h2>Conclusion</h2>
-      <p>My internship at Ampleon Philippines, Inc. has been a valuable learning experience. It has helped me strengthen my knowledge of SQL, Power BI, SAP ERP, Camstar MES, and enterprise software development while improving my communication, teamwork, and problem-solving skills.</p>
-      <p>As I continue my internship, I look forward to learning more and contributing to future projects while preparing for my career in software development and data analytics.</p>
+    <section class="panel reveal" id="learnings">
+      <h2>Learnings and Experience</h2>
+      <p>My internship at Ampleon Philippines, Inc. has been one of the most valuable learning experiences in my academic journey. Aside from developing the Material Consumption Report using SQL Server and Power BI, I also gained experience in daily SAP ERP monitoring, validating production data using Camstar MES, and supporting IT Helpdesk activities. These responsibilities allowed me to experience different areas of the Information Technology department.</p>
+      <p>Working in a real manufacturing company helped me understand how software solutions directly support business operations. I learned how to communicate with engineers, gather user requirements, present system updates, and improve reports based on client feedback. Presenting my own work during meetings also improved my confidence and communication skills.</p>
+      <p>One of the biggest challenges was understanding enterprise systems and ensuring that production data remained accurate throughout the development process. However, these challenges helped the student become more independent, responsible, and confident in solving real-world technical problems.</p>
+      <p>Overall, this internship strengthened the student's technical knowledge, professional work ethics, teamwork, and problem-solving abilities. The experience has prepared the student for a future career in software development, data analytics, and enterprise information systems.</p>
     </section>
     <a class="back" href="index.html">← Back to Home</a>
   </main>
