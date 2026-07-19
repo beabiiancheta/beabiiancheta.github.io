@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --purple:#9670d6;
+    --purple:#9670d6;a
     --purple-soft:#c3b1e1;
     --purple-deep:#6c4ca8;
     --ink:#1a1430;
@@ -99,7 +99,12 @@
   }
   .panel.active{display:block}
   .panel h2{color:var(--purple-deep);margin-bottom:1rem;font-size:1.4rem}
-  .panel p{color:var(--ink);line-height:1.8;margin-bottom:1rem}
+  .panel p{
+    color:var(--ink);
+    line-height:2;
+    margin-bottom:22px;
+    text-align:justify;
+}
   .panel ul{list-style:none;display:grid;gap:.7rem}
   .panel ul li{
     display:flex;gap:.7rem;align-items:flex-start;line-height:1.6;
@@ -107,13 +112,35 @@
     border-left:3px solid var(--purple);
   }
   .panel ul li::before{content:"✦";color:var(--purple);font-size:1rem;line-height:1.6}
-  /* timeline */
-  .timeline{position:relative;margin-top:1rem;padding-left:1.5rem}
-  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--purple),transparent)}
-  .tl-item{position:relative;padding-bottom:1.5rem}
+  /* timeline */.timeline{
+    position:relative;
+    width:650px;
+    max-width:100%;
+    margin:35px auto;
+    padding-left:40px;
+}
+  .timeline::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--purple),transparent)}
   .tl-item::before{content:"";position:absolute;left:-1.5rem;top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 4px rgba(150,111,214,.2)}
-  .tl-item strong{color:var(--purple-deep)}
-  .tl-item p{color:var(--muted);margin-top:.25rem;font-size:.95rem}
+  .tl-item{
+    position:relative;
+    padding-bottom:28px
+    background:white;
+    padding:18px 22px;
+    border-radius:15px;
+    margin-bottom:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.tl-item strong{
+    display:block;
+    font-size:1.05rem;
+    margin-bottom:6px;
+}
+
+.tl-item p{
+    margin:0;
+    color:var(--muted);
+}
   @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
   .reveal{opacity:0;transform:translateY(20px);transition:.7s ease}
   .reveal.in{opacity:1;transform:none}
@@ -128,6 +155,29 @@
     .nav-links{gap:1rem;flex-wrap:wrap;justify-content:center}
     .panel{padding:1.4rem}
   }
+  .company-content{
+    display:flex;
+    align-items:center;
+    gap:35px;
+    margin-top:25px;
+}
+
+.company-content img{
+    width:220px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.company-text{
+    flex:1;
+}
+
+.company-text p{
+    margin-bottom:18px;
+    text-align:justify;
+    line-height:1.9;
+}
   .accomplishment-images{
   display:flex;
   justify-content:center;
@@ -175,11 +225,15 @@
     </div>
     <section class="panel active reveal" id="company">
       <h2>Company Background</h2>
-      <div class="accomplishment-images">
-      <img src="images/IMG_0457.png" alt="Ampleon">
-      </div>
-      <p>Ampleon Philippines, Inc. is a global semiconductor manufacturing company that develops RF power solutions for industrial, communication, medical, and scientific applications. The student completed the internship under the Information Technology Department, where technology is used to support manufacturing operations, production systems, and business reporting.</p>
-      <p>Throughout the internship, the student was exposed to real-world software development, database management, enterprise applications, and technical support. This experience provided a better understanding of how information technology contributes to daily business operations in a manufacturing environment.</p>
+      <div class="company-content">
+    <img src="images/IMG_0457.png" alt="Ampleon">
+
+    <div class="company-text">
+        <p>Ampleon Philippines, Inc. is a global semiconductor manufacturing company that develops RF power solutions for industrial, communication, medical, and scientific applications. The student completed the internship under the Information Technology Department, where technology is used to support manufacturing operations, production systems, and business reporting.</p>
+
+        <p>Throughout the internship, the student was exposed to real-world software development, database management, enterprise applications, and technical support. This experience provided a better understanding of how information technology contributes to daily business operations in a manufacturing environment.</p>
+    </div>
+</div>
     </section>
     <section class="panel reveal" id="problem">
       <h2>Problem</h2>
